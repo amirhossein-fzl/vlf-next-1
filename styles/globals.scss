@@ -59,6 +59,9 @@
 		 url('../fonts/ttf/IRANSansWeb.ttf') format('truetype');
 }
 
+$primary_color: #4361ee;
+$secondary_color: #bc00dd;
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -73,4 +76,45 @@
 
 html {
     font-family: IRANSans;
+}
+
+a {
+    text-decoration: none;
+    color: #353535;
+    transition: .3s;
+    font-weight: 400;
+    font-size: 1.03em;
+    &:hover {
+        color: $primary_color;
+    }
+}
+
+// header {
+//     display: flex;
+// }
+
+nav {
+    display: flex;
+    align-items: center;
+    a {
+        margin-right: 15px;
+        &:first-child {
+            margin-right: 0;
+        }
+    }
+    button {
+        margin-right: 15px;
+    }
+}
+
+.userbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+        margin-right: 10px;
+        &:first-child {
+            margin-right: 0;
+        }
+    }
 }
