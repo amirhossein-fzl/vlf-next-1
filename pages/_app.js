@@ -4,6 +4,11 @@ import '../styles/globals.scss';
 
 const theme = createTheme({
     palette: {
+        default: {
+            main: "#fff",
+            dark: "#fff",
+            light: "#fff",
+        },
         primary: {
             main: "#4361ee",
             dark: "#4361ee",

@@ -89,10 +89,6 @@ a {
     }
 }
 
-// header {
-//     display: flex;
-// }
-
 nav {
     display: flex;
     align-items: center;
@@ -116,5 +112,47 @@ nav {
         &:first-child {
             margin-right: 0;
         }
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.header-2 {
+    margin-top: 100px;
+}
+
+.MuiAppBar-colorDefault {
+    background-color: #fff !important;
+}
+
+@media only screen and (max-width: 790px) {
+    .header-2 {
+        margin-top: 3rem !important;
+    }
+}
+
+@media only screen and (min-width: 790px), (max-width: 960px) {
+    .header-2 {
+        margin-top: 2rem !important;
+    }
+}
+
+@media only screen and (max-width: 369px) {
+    .mtxs {
+        margin-top: 10px !important;
     }
 }
