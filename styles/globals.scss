@@ -132,7 +132,7 @@ nav {
 }
 
 .header-2 {
-    margin-top: 100px;
+    margin-top: 100px !important;
 }
 
 .MuiAppBar-colorDefault {
@@ -145,7 +145,7 @@ nav {
     }
 }
 
-@media only screen and (min-width: 790px), (max-width: 960px) {
+@media only screen and (min-width: 790px) and (max-width: 960px) {
     .header-2 {
         margin-top: 2rem !important;
     }
