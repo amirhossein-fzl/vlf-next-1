@@ -8,9 +8,9 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html dir="rtl">
+            <Html>
                 <Head />
-                <body>
+                <body dir="rtl">
                     <Main />
                     <NextScript />
                 </body>

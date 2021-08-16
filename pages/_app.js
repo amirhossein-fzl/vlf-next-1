@@ -1,8 +1,14 @@
 import { createTheme } from '@material-ui/core/styles';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import { MuiThemeProvider, StylesProvider, jssPreset } from '@material-ui/core/styles';
+import { create } from 'jss';
+import rtl from 'jss-rtl';
+
+// Configure JSS
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 import '../styles/globals.scss';
 
 const theme = createTheme({
+    direction: 'rtl',
     palette: {
         default: {
             main: "#fff",
@@ -28,7 +34,9 @@ const theme = createTheme({
 function MyApp({ Component, pageProps }) {
     return (
         <MuiThemeProvider theme={theme}>
-            <Component {...pageProps} />
+            <StylesProvider jss={jss}>
+                <Component {...pageProps} />
+            </StylesProvider>
         </MuiThemeProvider>
     );
 }
