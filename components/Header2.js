@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Container, makeStyles, useScrollTrigger, Fab, Zoom, } from '@material-ui/core';
+import { Button, Grid, Container, makeStyles, useScrollTrigger, Fab, Zoom, Tooltip, } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Image from 'next/image';
 
@@ -20,17 +20,17 @@ function ElevationScroll(props) {
     });
 }
 
-const useStyless = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
     root: {
         position: 'fixed',
-        bottom: theme.spacing(2),
-        right: theme.spacing(2),
+        bottom: theme.spacing(4),
+        left: theme.spacing(4),
     },
 }));
 
 function ScrollTop(props) {
     const { children, window } = props;
-    const classes = useStyless();
+    const classes = useStyles();
     // Note that you normally won't need to set the window ref as useScrollTrigger
     // will default to window.
     // This is only being set here because the demo is in an iframe.
@@ -50,9 +50,11 @@ function ScrollTop(props) {
 
     return (
         <Zoom in={trigger}>
-            <div onClick={handleClick} role="presentation" className={classes.root}>
-                {children}
-            </div>
+            <Tooltip title="بازگشت به بالای صفحه" placement="top">
+                <div onClick={handleClick} role="presentation" className={classes.root}>
+                    {children}
+                </div>
+            </Tooltip>
         </Zoom>
     );
 }

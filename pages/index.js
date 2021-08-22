@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.scss';
+import Title from '../components/Title';
 
 export default function Home() {
     return (
@@ -12,7 +13,7 @@ export default function Home() {
             </Head>
             <Header isHome={true} />
             <main>
-                
+                <Title title="مسیر خود را انتخاب کنید !" />
             </main>
         </>
     );

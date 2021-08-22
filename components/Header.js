@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, TextField, useScrollTrigger, } from '@material-ui/core';
@@ -102,7 +101,7 @@ export default function Header(props) {
                             <MenuRoundedIcon />
                         </IconButton>
 
-                        <Drawer anchor="right" open={menu.isOpen} onClose={() => setMenu({ isOpen: false })} >
+                        <Drawer anchor="left" open={menu.isOpen} onClose={() => setMenu({ isOpen: false })} >
                             {nav.map((item, key) => {
                                 return (
                                     <Link href={item.link}>
@@ -120,7 +119,7 @@ export default function Header(props) {
                             <PersonRoundedIcon />
                         </IconButton>
 
-                        <Drawer anchor="left" open={user.isOpen} onClose={() => setUser({ isOpen: false })} >
+                        <Drawer anchor="right" open={user.isOpen} onClose={() => setUser({ isOpen: false })} >
                             <MenuItem>
                                 <h1>Hi</h1>
                             </MenuItem>
