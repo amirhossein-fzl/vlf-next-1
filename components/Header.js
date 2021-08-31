@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, Card, CardContent, Typography, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
+import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
@@ -8,6 +8,7 @@ import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header2 from './Header2';
+import SearchResult from './SearchResult';
 
 const useStyles = makeStyles((theme) => {
     return {
@@ -65,41 +66,9 @@ const useStyles = makeStyles((theme) => {
         },
         TabContent: {
             margin: 10,
-        },
-        srCard: {
-            width: '100%',
-        },
-        srContentCard: {
-            width: '100%',
             display: 'flex',
+            flexFlow: 'column',
         },
-        srCardContent: {
-            padding: 0,
-            '&:last-child': {
-                paddingBottom: 0,
-            }
-        },
-        SearchInfo: {
-            display: 'flex',
-            padding: '10px 15px',
-            flexDirection: 'column',
-        },
-        srTitle: {
-            fontSize: '1.1rem',
-            maxWidth: 100,
-
-        },
-        srIn: {
-            // fontSize: 12,
-            marginTop: 14,
-            marginBottom: 14,
-        },
-        ct: {
-            '&:first-child': {
-                marginTop: 0,
-            },
-            marginTop: 13,
-        }
     };
 });
 
@@ -233,23 +202,6 @@ export default function Header(props) {
         ) : null;
     };
 
-    const SearchResult = (props) => {
-        return (
-            <Card elevation={2} className={classes.ct} variant="outlined">
-                <CardContent className={classes.srCardContent}>
-                    <div className={classes.srContentCard}>
-                        <Image src={props.image} width={130} height={93} />
-                        <div className={classes.SearchInfo}>
-                            <Link href={props.link} className={classes.srTitle}>{props.title}</Link>
-                            <Typography className={classes.srIn} variant="caption">در <b>{props.in}</b></Typography>
-                            <Button color="secondary" variant="contained" size="small" disableElevation style={{ width: 'fit-content' }}>مشاهده</Button>
-                        </div>
-                    </div>
-                </CardContent>
-            </Card>
-        );
-    };
-
     const displayDesktop = () => {
         return (
             <ElevationScroll {...props} threshold={30}>
@@ -273,8 +225,6 @@ export default function Header(props) {
                                 </IconButton>
 
                                 <Popover id={id} open={open} anchorEl={anchorEl} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }} transformOrigin={{ vertical: 'top', horizontal: 'center', }} elevation={3}>
-                                    {/* <TextField id="standard-basic" label="استاندارد" autoFocus />
-                                    <p>Hii</p> */}
                                     <div className={classes.search}>
 
                                         <InputBase
@@ -290,16 +240,11 @@ export default function Header(props) {
                                         <div className={classes.searchIcon}>
                                             <IconButton size="small" color="primary">
                                                 <SearchRoundedIcon />
-                                                {/* <SearchRoundedIcon color="primary" /> */}
                                             </IconButton>
                                         </div>
                                     </div>
 
                                     <LinearProgress className={classes.lineLoad} color="secondary" />
-
-                                    {/* <Button onClick={() => {
-                                            setShow((state) => !state)
-                                        }}>Click</Button> */}
 
                                     <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
                                         <Tab label="وبلاگ" />
@@ -310,7 +255,7 @@ export default function Header(props) {
                                     <TabPanel tab={2}>
                                         <>
                                             <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
-                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" />
+                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" loading={true} />
                                             <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
                                         </>
                                     </TabPanel>
