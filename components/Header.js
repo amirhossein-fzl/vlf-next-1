@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, TextField, useScrollTrigger, } from '@material-ui/core';
+import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, Card, CardContent, Typography, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
@@ -9,11 +9,98 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Header2 from './Header2';
 
-const useStyles = makeStyles({
-    // App Bar Desktop Padding
-    abDp: {
-        padding: '5px 15px',
-    }
+const useStyles = makeStyles((theme) => {
+    return {
+        // App Bar Desktop Padding
+        abDp: {
+            padding: '5px 15px',
+        },
+
+        search: {
+            borderRadius: theme.shape.borderRadius,
+            backgroundColor: alpha(theme.palette.primary.light, 0.15),
+            margin: '5px auto',
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            width: 'fit-content',
+            [theme.breakpoints.up('sm')]: {
+                // marginRight: 5,
+            },
+        },
+        searchIcon: {
+            padding: theme.spacing(0, 1),
+            height: '100%',
+            // position: 'absolute',
+            // pointerEvents: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+        },
+        inputRoot: {
+            // color: 'inherit',
+            color: theme.palette.primary.main,
+            // backgroundColor: 'blue',
+        },
+        inputInput: {
+            padding: theme.spacing(1, 1, 1, 0),
+            // vertical padding + font size from searchIcon
+            paddingLeft: 10,
+            transition: theme.transitions.create('width'),
+            width: '100%',
+            [theme.breakpoints.up('sm')]: {
+                width: '12ch',
+                '&:focus': {
+                    width: '20ch',
+                },
+            },
+        },
+        lineLoad: {
+            margin: '10px 5px',
+            borderRadius: 5,
+        },
+        tab: {
+            margin: '10px 5px',
+        },
+        TabContent: {
+            margin: 10,
+        },
+        srCard: {
+            width: '100%',
+        },
+        srContentCard: {
+            width: '100%',
+            display: 'flex',
+        },
+        srCardContent: {
+            padding: 0,
+            '&:last-child': {
+                paddingBottom: 0,
+            }
+        },
+        SearchInfo: {
+            display: 'flex',
+            padding: '10px 15px',
+            flexDirection: 'column',
+        },
+        srTitle: {
+            fontSize: '1.1rem',
+            maxWidth: 100,
+
+        },
+        srIn: {
+            // fontSize: 12,
+            marginTop: 14,
+            marginBottom: 14,
+        },
+        ct: {
+            '&:first-child': {
+                marginTop: 0,
+            },
+            marginTop: 13,
+        }
+    };
 });
 
 function ElevationScroll(props) {
@@ -65,6 +152,12 @@ export default function Header(props) {
         isOpen: false,
     });
 
+    const [tab, setTab] = React.useState(2);
+
+    const handleChange = (event, newValue) => {
+        setTab(newValue);
+    };
+
     const toggleMenu = () => {
         setMenu({
             isOpen: !menu.isOpen
@@ -78,6 +171,7 @@ export default function Header(props) {
     }
 
     const { abDp } = useStyles();
+    const classes = useStyles();
 
     const [anchorEl, setAnchorEl] = useState(null);
 
@@ -87,6 +181,7 @@ export default function Header(props) {
 
     const handleClose = () => {
         setAnchorEl(null);
+        setTab(2);
     };
 
     const open = Boolean(anchorEl);
@@ -130,50 +225,122 @@ export default function Header(props) {
         );
     };
 
+    const TabPanel = (props) => {
+        return tab == props.tab ? (
+            <div className={classes.TabContent}>
+                <Grow in={true}>{props.children}</Grow>
+            </div>
+        ) : null;
+    };
+
+    const SearchResult = (props) => {
+        return (
+            <Card elevation={2} className={classes.ct} variant="outlined">
+                <CardContent className={classes.srCardContent}>
+                    <div className={classes.srContentCard}>
+                        <Image src={props.image} width={130} height={93} />
+                        <div className={classes.SearchInfo}>
+                            <Link href={props.link} className={classes.srTitle}>{props.title}</Link>
+                            <Typography className={classes.srIn} variant="caption">در <b>{props.in}</b></Typography>
+                            <Button color="secondary" variant="contained" size="small" disableElevation style={{ width: 'fit-content' }}>مشاهده</Button>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+        );
+    };
+
     const displayDesktop = () => {
         return (
-                <ElevationScroll {...props} threshold={30}>
-                    <AppBar color="default" elevation={0} position="sticky" className={abDp}>
-                        <Container>
-                            <Grid container direction="row" justifyContent="space-between" alignItems="center">
-                                {/* <Link href="#">
-                            <a> */}
-                                <Image src="/vercel.svg" width={100} height={50} />
-                                {/* </a>
-                        </Link> */}
-                                <nav>
-                                    {nav.map((item, key) => {
-                                        return <Link href={item.link} key={key}>{item.title}</Link>
-                                    })}
-                                    {/* <MrLink> */}
-                                    <a>
-                                        <Link href="#" style={{ marginRight: 10 }}>
-                                            <Button color="primary" size="small" variant="outlined">مدرس شوید !</Button>
-                                        </Link>
-                                    </a>
-                                    {/* </MrLink> */}
-                                </nav>
-                                <div className="userbox">
-                                    <IconButton aria-describedby={id} onClick={handleClick} size="small" color="primary">
-                                        <SearchRoundedIcon />
-                                    </IconButton>
+            <ElevationScroll {...props} threshold={30}>
+                <AppBar color="default" elevation={0} position="sticky" className={abDp}>
+                    <Container>
+                        <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                            <Image src="/vercel.svg" width={100} height={50} />
+                            <nav>
+                                {nav.map((item, key) => {
+                                    return <Link href={item.link} key={key}>{item.title}</Link>
+                                })}
+                                <a>
+                                    <Link href="#" style={{ marginRight: 10 }}>
+                                        <Button color="primary" size="small" variant="outlined">مدرس شوید !</Button>
+                                    </Link>
+                                </a>
+                            </nav>
+                            <div className="userbox">
+                                <IconButton aria-describedby={id} onClick={handleClick} size="small" color="primary">
+                                    <SearchRoundedIcon />
+                                </IconButton>
 
-                                    <Popover id={id} open={open} anchorEl={anchorEl} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }} transformOrigin={{ vertical: 'top', horizontal: 'center', }}>
-                                        <TextField id="standard-basic" label="استاندارد" autoFocus />
-                                    </Popover>
+                                <Popover id={id} open={open} anchorEl={anchorEl} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }} transformOrigin={{ vertical: 'top', horizontal: 'center', }} elevation={3}>
+                                    {/* <TextField id="standard-basic" label="استاندارد" autoFocus />
+                                    <p>Hii</p> */}
+                                    <div className={classes.search}>
 
-                                    <Button variant="contained" color="primary" size="small" disableElevation>
-                                        ورود
-                                    </Button>
+                                        <InputBase
+                                            placeholder="سرچ ..."
+                                            classes={{
+                                                root: classes.inputRoot,
+                                                input: classes.inputInput,
+                                            }}
+                                            autoFocus={true}
+                                            inputProps={{ 'aria-label': 'search' }}
+                                        />
 
-                                    <Button variant="outlined" color="secondary" size="small" disableElevation>
-                                        ثبت نام
-                                    </Button>
-                                </div>
-                            </Grid>
-                        </Container>
-                    </AppBar>
-                </ElevationScroll>
+                                        <div className={classes.searchIcon}>
+                                            <IconButton size="small" color="primary">
+                                                <SearchRoundedIcon />
+                                                {/* <SearchRoundedIcon color="primary" /> */}
+                                            </IconButton>
+                                        </div>
+                                    </div>
+
+                                    <LinearProgress className={classes.lineLoad} color="secondary" />
+
+                                    {/* <Button onClick={() => {
+                                            setShow((state) => !state)
+                                        }}>Click</Button> */}
+
+                                    <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
+                                        <Tab label="وبلاگ" />
+                                        <Tab label="دوره ها" />
+                                        <Tab label="همه" />
+                                    </Tabs>
+
+                                    <TabPanel tab={2}>
+                                        <>
+                                            <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
+                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" />
+                                            <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
+                                        </>
+                                    </TabPanel>
+
+                                    <TabPanel tab={1}>
+                                        <>
+                                            <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
+                                        </>
+                                    </TabPanel>
+
+                                    <TabPanel tab={0}>
+                                        <>
+                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" />
+                                            <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
+                                        </>
+                                    </TabPanel>
+                                </Popover>
+
+                                <Button variant="contained" color="primary" size="small" disableElevation>
+                                    ورود
+                                </Button>
+
+                                <Button variant="outlined" color="secondary" size="small" disableElevation>
+                                    ثبت نام
+                                </Button>
+                            </div>
+                        </Grid>
+                    </Container>
+                </AppBar>
+            </ElevationScroll>
         );
     };
 

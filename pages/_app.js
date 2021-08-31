@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import { createTheme } from '@material-ui/core/styles';
-import { MuiThemeProvider, StylesProvider, jssPreset } from '@material-ui/core/styles';
+import React, { useEffect, useState } from 'react';
+import { createTheme, MuiThemeProvider, StylesProvider, jssPreset, CircularProgress, Grid, } from '@material-ui/core';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 
@@ -32,7 +31,17 @@ const theme = createTheme({
     },
 });
 
+const Loader = () => {
+    return (
+        <Grid container justifyContent="center" alignItems="center" style={{ height: '100vh' }}>
+            <CircularProgress size={80} color="secondary" />
+        </Grid>
+    );
+};
+
 function MyApp({ Component, pageProps }) {
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -67,7 +76,11 @@ function MyApp({ Component, pageProps }) {
         }
     });
 
-    return (
+    useEffect(() => {
+        setLoading(false);
+    }, []);
+
+    return loading ? (<Loader />) : (
         <MuiThemeProvider theme={theme}>
             <StylesProvider jss={jss}>
                 <Component {...pageProps} />
