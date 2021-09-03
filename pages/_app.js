@@ -41,8 +41,6 @@ const Loader = () => {
 
 function MyApp({ Component, pageProps }) {
 
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
 
         const detectIEEdge = () => {
@@ -76,11 +74,7 @@ function MyApp({ Component, pageProps }) {
         }
     });
 
-    useEffect(() => {
-        setLoading(false);
-    }, []);
-
-    return loading ? (<Loader />) : (
+    return (
         <MuiThemeProvider theme={theme}>
             <StylesProvider jss={jss}>
                 <Component {...pageProps} />
