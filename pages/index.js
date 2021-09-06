@@ -4,7 +4,8 @@ import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Button, } from '@material-ui/core';
+import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
@@ -13,6 +14,11 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    '@media only screen and (max-width: 768px)': {
+        smResp: {
+            width: '90%',
+        }
     }
 });
 
@@ -192,6 +198,21 @@ export default function Home() {
                                 time="12:00"
                             />
 
+                        </Row>
+                    </Container>
+                </>
+
+                <>
+                    <Title title="مدرس شوید !" />
+                    <Container className={classes.smResp}>
+                        <Row>
+                            <Col lg={6}>
+                                <Image src="/svg/become-teacher.svg" width={513} height={327} />
+                            </Col>
+                            <Col lg={6}>
+                                <p> بله ! شما میتوانید در مجموعه ویرولرن در هر حوزه ای، تدریس کنید و به درآمد های عالی دست پیدا کنید ! هدف مجموعه ویرولرن، تکثیر دانش افراد متخصص، به افراد مبتدی است. </p>
+                                <Button className="mt-5" color="secondary" variant="outlined" size="small">مدرس شوید !</Button>
+                            </Col>
                         </Row>
                     </Container>
                 </>
