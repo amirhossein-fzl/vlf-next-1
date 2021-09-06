@@ -7,6 +7,7 @@ import { Container, Row, Col, } from 'react-bootstrap';
 import { makeStyles, Button, } from '@material-ui/core';
 import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
+import PostCard from '../components/PostCard';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const useStyles = makeStyles({
@@ -213,6 +214,75 @@ export default function Home() {
                                 <p> بله ! شما میتوانید در مجموعه ویرولرن در هر حوزه ای، تدریس کنید و به درآمد های عالی دست پیدا کنید ! هدف مجموعه ویرولرن، تکثیر دانش افراد متخصص، به افراد مبتدی است. </p>
                                 <Button className="mt-5" color="secondary" variant="outlined" size="small">مدرس شوید !</Button>
                             </Col>
+                        </Row>
+                    </Container>
+                </>
+
+                <>
+                    <Title title="وبلاگ ویرولرن" />
+                    <Container>
+                        <Row>
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="ویژگی جدید در ASP.Net Core 5.0"
+                                img="/img/posts/Asp_net_core5.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'امیرحسین فضلی', link: '#' }}
+                                views={95000}
+                            />
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="نکات مهم و کلیدی در طراحی لوگو"
+                                img="/img/posts/nmvldt-logo.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'میلاد محمدی', link: '#' }}
+                                views={95000}
+                            />
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="مهم ترین تکنیک های سئو"
+                                img="/img/posts/seo.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'امیرحسین فضلی', link: '#' }}
+                                views={95000}
+                            />
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="چند نکته مهم برای امنیت در شبکه های اجتماعی"
+                                img="/img/posts/social_network.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'میلاد محمدی', link: '#' }}
+                                views={95000}
+                            />
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="دستیار صوتی چیست؟"
+                                img="/img/posts/voice-assistant.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'امیرحسین فضلی', link: '#' }}
+                                views={95000}
+                            />
+
+                            <PostCard
+                                grid={{ lg: 4, md: 6 }}
+                                link="#"
+                                title="5 مورد از بهترین Vscode Extention ها برای توسعه دهندگان جاوااسکریپت"
+                                img="/img/posts/VS_Code_Extension.png"
+                                description="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ"
+                                author={{ name: 'میلاد محمدی', link: '#' }}
+                                views={95000}
+                            />
+
                         </Row>
                     </Container>
                 </>
