@@ -3,10 +3,84 @@ import Header from '../components/Header';
 import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col, } from 'react-bootstrap';
+import { makeStyles } from '@material-ui/core';
+import CategoryCard from '../components/CategoryCard';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
+const useStyles = makeStyles({
+    CourseCard: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+});
+
 export default function Home() {
+    const classes = useStyles();
+    let categories = [
+        {
+            title: "هوش مصنوعی",
+            icon: "/svg/categories/ai.svg",
+            link: "#",
+        },
+        {
+            title: "اندروید",
+            icon: "/svg/categories/android.svg",
+            link: "#",
+        },
+        {
+            title: "سیستم ها مدیریت محتوا",
+            icon: "/svg/categories/cms.svg",
+            link: "#",
+        },
+        {
+            title: "ارز دیجیتال",
+            icon: "/svg/categories/cryptocurrency.svg",
+            link: "#",
+        },
+        {
+            title: "گرافیک",
+            icon: "/svg/categories/graphic.svg",
+            link: "#",
+        },
+        {
+            title: "جاوااسکریپت",
+            icon: "/svg/categories/javascript.svg",
+            link: "#",
+        },
+        {
+            title: "شبکه",
+            icon: "/svg/categories/network.svg",
+            link: "#",
+        },
+        {
+            title: "PHP",
+            icon: "/svg/categories/php.svg",
+            link: "#",
+        },
+        {
+            title: "پایتون",
+            icon: "/svg/categories/python.svg",
+            link: "#",
+        },
+        {
+            title: "استارتاپ و کسب و کار",
+            icon: "/svg/categories/startup.svg",
+            link: "#",
+        },
+        {
+            title: "رابط کاربری",
+            icon: "/svg/categories/ui.svg",
+            link: "#",
+        },
+        {
+            title: "برنامه نویسی وب",
+            icon: "/svg/categories/web.svg",
+            link: "#",
+        },
+    ];
+
     return (
         <>
             <Head>
@@ -16,92 +90,112 @@ export default function Home() {
             </Head>
             <Header isHome={true} />
             <main>
-                <Title title="مسیر خود را انتخاب کنید !" />
-                <Container fluid="lg">
-                    <Row className="mb-5">
+                <>
+                    <Title title="مسیر خود را انتخاب کنید !" />
+                    <Container>
+                        <Row>
+                            {
+                                categories.map((category, key) => {
+                                    return (
+                                        <Col lg={2} sm={4} xs={6} className={classes.CourseCard} key={key}>
+                                            <CategoryCard icon={category.icon} title={category.title} link={category.link} />
+                                        </Col>
+                                    )
+                                })
+                            }
+                        </Row>
+                    </Container>
+                </>
 
-                        <CourseCard
-                            title="حل مسائل و تمرین های الگوریتم و فلوچارت"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/algoritm.png"
-                            link="#"
-                            teacher={{ name: 'میلاد محمدی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                <>
+                    <Title title="جدید ترین دوره ها" />
+                    <Container fluid="lg">
+                        <Row className="mb-5">
 
-                        <CourseCard
-                            title="آموزش گرافیک تبلیغاتی پیشرفته"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/graphic.png"
-                            link="#"
-                            teacher={{ name: 'امیرحسین فضلی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="حل مسائل و تمرین های الگوریتم و فلوچارت"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/algoritm.png"
+                                link="#"
+                                teacher={{ name: 'میلاد محمدی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="طراحی های خلاقانه رابط کاربری وبسایت (Html, Css, Jquery)"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/html-css-jquery.png"
-                            link="#"
-                            teacher={{ name: 'میلاد محمدی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="آموزش گرافیک تبلیغاتی پیشرفته"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/graphic.png"
+                                link="#"
+                                teacher={{ name: 'امیرحسین فضلی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="برنامه نویس شی گرا در جاوااسکریپت"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/javascriptOOP.png"
-                            link="#"
-                            teacher={{ name: 'امیرحسین فضلی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="طراحی های خلاقانه رابط کاربری وبسایت (Html, Css, Jquery)"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/html-css-jquery.png"
+                                link="#"
+                                teacher={{ name: 'میلاد محمدی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="آموزش متریال بوت استرپ (mdbootstrap)"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/mdbootstrap.png"
-                            link="#"
-                            teacher={{ name: 'میلاد محمدی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="برنامه نویس شی گرا در جاوااسکریپت"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/javascriptOOP.png"
+                                link="#"
+                                teacher={{ name: 'امیرحسین فضلی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="آموزش امنیت در PHP"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/php-security.png"
-                            link="#"
-                            teacher={{ name: 'امیرحسین فضلی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="آموزش متریال بوت استرپ (mdbootstrap)"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/mdbootstrap.png"
+                                link="#"
+                                teacher={{ name: 'میلاد محمدی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="تحلیل و پیش بینی بورس در پایتون"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/Stock-analysis.png"
-                            link="#"
-                            teacher={{ name: 'میلاد محمدی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="آموزش امنیت در PHP"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/php-security.png"
+                                link="#"
+                                teacher={{ name: 'امیرحسین فضلی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                        <CourseCard
-                            title="آموزش Selenium در سی شارپ از صفر تا صد"
-                            grid={{ lg: 3, md: 4, sm: 6 }}
-                            img="/img/products/seleniumc-sharp.png"
-                            link="#"
-                            teacher={{ name: 'امیرحسین فضلی', link: '#' }}
-                            price={250000}
-                            time="12:00"
-                        />
+                            <CourseCard
+                                title="تحلیل و پیش بینی بورس در پایتون"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/Stock-analysis.png"
+                                link="#"
+                                teacher={{ name: 'میلاد محمدی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
 
-                    </Row>
-                </Container>
+                            <CourseCard
+                                title="آموزش Selenium در سی شارپ از صفر تا صد"
+                                grid={{ lg: 3, md: 4, sm: 6 }}
+                                img="/img/products/seleniumc-sharp.png"
+                                link="#"
+                                teacher={{ name: 'امیرحسین فضلی', link: '#' }}
+                                price={250000}
+                                time="12:00"
+                            />
+
+                        </Row>
+                    </Container>
+                </>
+
             </main>
         </>
     );
