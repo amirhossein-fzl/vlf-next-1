@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';
-import { makeStyles, Button, } from '@material-ui/core';
+import { makeStyles, Button, Grid } from '@material-ui/core';
 import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
@@ -284,6 +284,9 @@ export default function Home() {
                             />
 
                         </Row>
+                        <Grid container justifyContent="center" className="mt-5">
+                            <Button variant="outlined" color="secondary">مشاهده بیشتر</Button>
+                        </Grid>
                     </Container>
                 </>
 
