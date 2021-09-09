@@ -1,13 +1,15 @@
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';
-import { makeStyles, Button, Grid } from '@material-ui/core';
+import { makeStyles, Button, Grid, TextField, } from '@material-ui/core';
 import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
+import EmailSvg from '../public/svg/EmailSvg';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const useStyles = makeStyles({
@@ -20,10 +22,24 @@ const useStyles = makeStyles({
         smResp: {
             width: '90%',
         }
+    },
+    ni: {
+        width: '100pt',
+        color: '#ff9100',
+    },
+    nlp: {
+        textAlign: 'center',
     }
 });
 
 export default function Home() {
+    const [validEmail, setValidEmail] = useState(false);
+
+    function validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return setValidEmail(!re.test(String(email).toLowerCase()));
+    }
+
     const classes = useStyles();
     let categories = [
         {
@@ -289,7 +305,18 @@ export default function Home() {
                         </Grid>
                     </Container>
                 </>
-
+                <>
+                    <Container>
+                        <Grid className="mt-5" container direction="column" justifyContent="center" alignItems="center">
+                            <EmailSvg className={classes.ni} />
+                            <p className={"mt-3 mb-4 " + classes.nlp}>عضو خبرنامه ما شوید تا از آخرین تخفیف ها و اطلاعیه ها جا نمانید !</p>
+                            <Col lg={4} sm={6} xs={10}>
+                                <TextField error={validEmail} fullWidth id="outlined-basic" type="email" label="ایمیل شما" placeholder="ایمیل خود را اینجا وارد کنید ..." onChange={(e) => validateEmail(e.target.value)} size="small" variant="outlined" />
+                            </Col>
+                            ‌<Button variant="contained" color="primary">عضویت در خبرنامه</Button>
+                        </Grid>
+                    </Container>
+                </>
             </main>
         </>
     );
