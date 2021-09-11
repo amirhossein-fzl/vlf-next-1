@@ -70,7 +70,7 @@ export default function Footer() {
         <>
             <Grid className="mt-5 mb-5" container justifyContent="center">
                 <Fab color="primary" size="large" onClick={toTop}>
-                    <KeyboardArrowUpIcon />
+                    <KeyboardArrowUpIcon fontSize="large" />
                 </Fab>
             </Grid>
             <footer className={classes.footer}>

@@ -90,8 +90,8 @@ export default function Header2(props) {
 
             </Grid>
             <ScrollTop {...props}>
-                <Fab color="secondary" size="small" aria-label="scroll back to top">
-                    <KeyboardArrowUpIcon />
+                <Fab color="secondary" size="medium" aria-label="scroll back to top">
+                    <KeyboardArrowUpIcon fontSize="large" />
                 </Fab>
             </ScrollTop>
         </Container>
