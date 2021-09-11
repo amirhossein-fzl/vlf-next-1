@@ -10,6 +10,7 @@ import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
 import EmailSvg from '../public/svg/EmailSvg';
+import Footer from '../components/Footer';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const useStyles = makeStyles({
@@ -318,6 +319,7 @@ export default function Home() {
                     </Container>
                 </>
             </main>
+            <Footer />
         </>
     );
 }

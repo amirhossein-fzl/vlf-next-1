@@ -177,6 +177,10 @@ nav {
     }
 }
 
+ul {
+    list-style: none;
+}
+
 @media only screen and (max-width: 790px) {
     .header-2 {
         margin-top: 3rem !important;
