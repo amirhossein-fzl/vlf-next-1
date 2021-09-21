@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Grid, Container, makeStyles, useScrollTrigger, Fab, Zoom, Tooltip, } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Image from 'next/image';
+import SearchAjax from './SearchAjax';
 
 function ElevationScroll(props) {
     const { children, window } = props;
@@ -74,17 +75,18 @@ export default function Header2(props) {
     return (
         <Container>
             <Grid container lg={12} item className="header-2" >
-                <Grid lg={6} md={6} sm={12} item container direction="column" justifyContent="center" className="text-center" >
+                <Grid lg={6} md={6} sm={12} item container direction="column" className="text-center" >
                     <h1>با ویرولرن</h1>
                     <h2 className="mt-3">لحظه ای از تکنولوژی عقب نمانید !</h2>
                     <p className="mt-3">آموزش آنلاین توسط بهترین اساتید برای ساخت آینده کاری شما و تضمین یادگیری شما در ویرولرن</p>
-                    <Grid justifyContent="space-evenly" container className="mt-5 mb-5">
+                    {/* <Grid justifyContent="space-evenly" container className="mt-5 mb-5">
                         <Button disableElevation variant="outlined" color="primary">از دوره های ما دیدن کنید</Button>
                         <Button disableElevation variant="outlined" color="secondary" className="mtxs">از فروشگاه ما دیدن کنید</Button>
-                    </Grid>
+                    </Grid> */}
+                    <SearchAjax />
                 </Grid>
 
-                <Grid lg={6} md={6} sm={12} item container justifyContent="center" >
+                <Grid lg={6} md={6} sm={12} item container justifyContent="center" alignItems="flex-start" >
                     <Image src="svg/online-course.svg" width={600} height={374} />
                 </Grid>
 

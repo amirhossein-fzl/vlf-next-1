@@ -32,6 +32,7 @@ const useStyles = makeStyles({
         // fontSize: 12,
         marginTop: 14,
         marginBottom: 14,
+        textAlign: 'left',
     },
     ct: {
         '&:first-child': {
