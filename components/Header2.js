@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Container, makeStyles, useScrollTrigger, Fab, Zoom, Tooltip, } from '@material-ui/core';
+import { Button, Grid, Container, useScrollTrigger, Fab, Zoom, Tooltip, } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Image from 'next/image';
 import SearchAjax from './SearchAjax';
@@ -22,11 +23,15 @@ function ElevationScroll(props) {
 }
 
 const useStyles = makeStyles((theme) => ({
-    root: {
+    ScrollButton: {
         position: 'fixed',
         bottom: theme.spacing(4),
-        left: theme.spacing(4),
+        right: theme.spacing(4),
         zIndex: 999,
+    },
+    Tooltip: {
+        backgroundColor: theme.palette.primary.main + ' !important',
+        fontSize: '12px !important',
     },
 }));
 
@@ -52,8 +57,8 @@ function ScrollTop(props) {
 
     return (
         <Zoom in={trigger}>
-            <Tooltip title="بازگشت به بالای صفحه" placement="top">
-                <div onClick={handleClick} role="presentation" className={classes.root}>
+            <Tooltip title="بازگشت به بالای صفحه" placement="top" classes={{ tooltip: classes.Tooltip }} interactive={true} >
+                <div onClick={handleClick} role="presentation" className={classes.ScrollButton}>
                     {children}
                 </div>
             </Tooltip>

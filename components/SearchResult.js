@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, Typography, Button, makeStyles } from '@material-ui/core';
+import { Card, CardContent, Typography, Button } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import ContentLoader from 'react-content-loader';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -74,7 +75,7 @@ export default function SearchResult(props) {
     }, []);
     
     return loading ? (<Loader />) : (
-        <Card elevation={2} className={classes.ct} variant="outlined">
+        <Card className={classes.ct} variant="outlined">
             <CardContent className={classes.srCardContent}>
                 <div className={classes.srContentCard}>
                     <Image src={props.image} width={130} height={93} />

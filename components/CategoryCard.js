@@ -1,15 +1,16 @@
 import React from 'react';
-import { ButtonBase, makeStyles, Typography, useTheme  } from '@material-ui/core';
+import { ButtonBase, Typography, } from '@mui/material';
+import { makeStyles, useTheme, } from '@mui/styles';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        padding: 10,
-        borderRadius: 4,
+        padding: '10px !important',
+        borderRadius: theme.shape.borderRadius + 'px !important',
         display: 'flex',
         flexDirection: 'column',
-        marginTop: 10,
+        marginTop: '10px !important',
         alignItems: 'center',
         width: '100%',
         marginBottom: 15,

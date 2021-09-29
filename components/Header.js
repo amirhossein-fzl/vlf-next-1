@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
+// import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
+import { Button, Grid, Container, IconButton, AppBar, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, } from '@mui/material';
+import { makeStyles, } from '@mui/styles';
 import { useMediaQuery } from 'react-responsive';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
@@ -168,7 +170,7 @@ export default function Header(props) {
                         <Drawer anchor="left" open={menu.isOpen} onClose={() => setMenu({ isOpen: false })} >
                             {nav.map((item, key) => {
                                 return (
-                                    <Link href={item.link}>
+                                    <Link href={item.link} key={key}>
                                         <MenuItem>{item.title}</MenuItem>
                                     </Link>
                                 );
@@ -197,7 +199,7 @@ export default function Header(props) {
     const TabPanel = (props) => {
         return tab == props.tab ? (
             <div className={classes.TabContent}>
-                <Grow in={true}>{props.children}</Grow>
+                {props.children}
             </div>
         ) : null;
     };
@@ -224,7 +226,12 @@ export default function Header(props) {
                                     <SearchRoundedIcon />
                                 </IconButton>
 
-                                <Popover id={id} open={open} anchorEl={anchorEl} onClose={handleClose} anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }} transformOrigin={{ vertical: 'top', horizontal: 'center', }} elevation={3}>
+                                <Popover id={id} open={open} anchorEl={anchorEl}
+                                    onClose={handleClose}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
+                                    transformOrigin={{ vertical: 'top', horizontal: 'center', }}
+                                    elevation={3}
+                                    >
                                     <div className={classes.search}>
 
                                         <InputBase
@@ -235,6 +242,7 @@ export default function Header(props) {
                                             }}
                                             autoFocus={true}
                                             inputProps={{ 'aria-label': 'search' }}
+                                            interactive={true}
                                         />
 
                                         <div className={classes.searchIcon}>
@@ -246,7 +254,7 @@ export default function Header(props) {
 
                                     <LinearProgress className={classes.lineLoad} color="secondary" />
 
-                                    <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
+                                    <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} variant="fullWidth" className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
                                         <Tab label="وبلاگ" />
                                         <Tab label="دوره ها" />
                                         <Tab label="همه" />
@@ -278,9 +286,11 @@ export default function Header(props) {
                                     ورود
                                 </Button>
 
-                                <Button variant="outlined" color="secondary" size="small" disableElevation>
-                                    ثبت نام
-                                </Button>
+                                <Link href='/signup'>
+                                    <Button variant="outlined" color="secondary" size="small" disableElevation>
+                                        ثبت نام
+                                    </Button>
+                                </Link>
                             </div>
                         </Grid>
                     </Container>

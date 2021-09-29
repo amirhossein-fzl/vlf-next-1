@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles, Grid, Fab, Typography, Container, IconButton, } from '@material-ui/core';
+import { Grid, Fab, Typography, Container, IconButton, } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Row, Col, } from 'react-bootstrap';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import CountUp from 'react-countup';
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     infos: {
         '& ul': {
             listStyle: 'none',
-            marginLeft: 12,
+            marginRight: 12,
             '& li:first-child': {
                 fontSize: 22,
             },
@@ -52,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     socialIcon: {
-        color: '#fff',
+        color: '#fff !important',
     },
 }));
 

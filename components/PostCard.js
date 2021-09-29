@@ -1,5 +1,6 @@
 import React from 'react';
-import { makeStyles, Card, Tooltip, CardActions, CardContent, Button, Typography, Zoom, Grid, IconButton, } from '@material-ui/core';
+import { Card, Tooltip, CardActions, CardContent, Button, Typography, Zoom, Grid, IconButton, } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { Col, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import PersonIcon from '@material-ui/icons/Person';
@@ -24,11 +25,11 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer'
     },
     Tooltip: {
-        backgroundColor: theme.palette.primary.main,
-        fontSize: 14,
+        backgroundColor: theme.palette.primary.main + ' !important',
+        fontSize: '14px !important',
     },
     ArrowTooltip: {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.main + ' !important',
     },
     TeacherSection: {
         display: 'inline-flex',
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         width: 'fit-content',
         fontSize: '0.8rem',
         "& span": {
-            marginLeft: 3,
+            marginRight: 3,
         },
     },
     BorderTop: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
             color: theme.palette.secondary.main,
         },
         '& span': {
-            marginRight: 3,
+            marginLeft: 3,
             fontWeight: 'bold',
         }
     },
@@ -71,7 +72,7 @@ export default function PostCard(props) {
                 <CardContent className={classes.paddingInto}>
 
                     <Link href={props.link}>
-                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive>
+                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive={true}>
                             <a className={classes.title}>{props.title}</a>
                         </Tooltip>
                     </Link>

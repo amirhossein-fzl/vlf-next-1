@@ -1,35 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import { createTheme, MuiThemeProvider, StylesProvider, jssPreset, CircularProgress, Grid, } from '@material-ui/core';
-import { create } from 'jss';
-import rtl from 'jss-rtl';
+import PropTypes from 'prop-types';
+import { CircularProgress, Grid, } from '@mui/material';
+// import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
-// Configure JSS
-const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
-import '../styles/globals.scss';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider } from '@emotion/react';
+import theme from '../src/theme';
+import createEmotionCache from '../src/createEmotionCache';
 
-const theme = createTheme({
-    direction: 'rtl',
-    palette: {
-        default: {
-            main: "#fff",
-            dark: "#fff",
-            light: "#fff",
-        },
-        primary: {
-            main: "#0089ff",
-            dark: "#0089ff",
-            light: "#0089ff",
-        },
-        secondary: {
-            main: "#bc00dd",
-            dark: "#bc00dd",
-            light: "#bc00dd",
-        },
-    },
-    typography: {
-        fontFamily: ['IRANSans'],
-    },
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
+
+import rtlPlugin from 'stylis-plugin-rtl';
+import createCache from '@emotion/cache';
+
+// Create rtl cache
+const cacheRtl = createCache({
+    key: 'muirtl',
+    stylisPlugins: [rtlPlugin],
 });
+
+
+import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
+import '../styles/globals.scss';
 
 const Loader = () => {
     return (
@@ -39,10 +33,15 @@ const Loader = () => {
     );
 };
 
-function MyApp({ Component, pageProps }) {
-
+function MyApp(props) {
+    const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+    
     useEffect(() => {
-
+        // Remove the server-side injected CSS.
+        const jssStyles = document.querySelector('#jss-server-side');
+        if (jssStyles) {
+            jssStyles.parentElement.removeChild(jssStyles);
+        }
         const detectIEEdge = () => {
             let ua = window.navigator.userAgent;
 
@@ -72,15 +71,25 @@ function MyApp({ Component, pageProps }) {
         if (detectIEEdge()) {
             alert('جهت عملکرد بهتر وبسایت، از مرورگر های جدید و مدرن و بروز استفاده کنید. مانند: گوگل کروم، فایرفکس، اوپرا و ...');
         }
-    });
+    }, []);
 
     return (
-        <MuiThemeProvider theme={theme}>
-            <StylesProvider jss={jss}>
-                <Component {...pageProps} />
-            </StylesProvider>
-        </MuiThemeProvider>
+        <CacheProvider value={emotionCache}>
+            <ThemeProvider theme={theme}>
+                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+                <CssBaseline />
+                <CacheProvider value={cacheRtl}>
+                    <Component {...pageProps} />
+                </CacheProvider>
+            </ThemeProvider>
+        </CacheProvider>
     );
 }
+
+MyApp.propTypes = {
+    Component: PropTypes.elementType.isRequired,
+    emotionCache: PropTypes.object,
+    pageProps: PropTypes.object.isRequired,
+};
 
 export default MyApp;

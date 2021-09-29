@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';
-import { makeStyles, Button, Grid, TextField, } from '@material-ui/core';
+import { Button, Grid, TextField, } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
@@ -229,7 +230,7 @@ export default function Home() {
                             </Col>
                             <Col lg={6}>
                                 <p> بله ! شما میتوانید در مجموعه ویرولرن در هر حوزه ای، تدریس کنید و به درآمد های عالی دست پیدا کنید ! هدف مجموعه ویرولرن، تکثیر دانش افراد متخصص، به افراد مبتدی است. </p>
-                                <Button className="mt-5" color="secondary" variant="outlined" size="small">مدرس شوید !</Button>
+                                <Button className="mt-5" color="error" variant="outlined" size="small">مدرس شوید !</Button>
                             </Col>
                         </Row>
                     </Container>

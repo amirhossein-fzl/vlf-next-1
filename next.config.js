@@ -10,4 +10,5 @@ module.exports = {
         loader: 'imgix',
         path: '/',
     },
+    reactStrictMode: false,
 };

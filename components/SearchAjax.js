@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { makeStyles, Paper, Tabs, Tab, InputBase, alpha, IconButton, ButtonBase, Grid, Typography, Grow, useTheme, } from '@material-ui/core';
+import { Paper, InputBase, alpha, IconButton, ButtonBase, Grid, Typography, Grow, } from '@mui/material';
+import { makeStyles, useTheme } from '@mui/styles';
 import { Col, Container } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
@@ -24,12 +25,12 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
     },
     SearchButton: {
-        color: '#fff',
-        backgroundColor: theme.palette.primary.main,
+        color: '#fff !important',
+        backgroundColor: theme.palette.primary.main + ' !important',
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
         },
-        marginLeft: 10,
+        marginRight: 10 + 'px !important',
     },
     SearchReslut: {
         width: '100%',
@@ -40,13 +41,13 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     SearchItem: {
-        borderRadius: 4,
-        padding: '6px 12px',
-        marginTop: 6,
+        borderRadius: theme.shape.borderRadius + 'px !important',
+        padding: '6px 12px !important',
+        marginTop: 6 + 'px !important',
         textAlign: 'left',
         display: 'block',
-        color: theme.palette.primary.main,
-        backgroundColor: alpha(theme.palette.primary.main, 0.05),
+        color: theme.palette.primary.main + ' !important',
+        backgroundColor: alpha(theme.palette.primary.main, 0.05) + ' !important',
     },
     badge: {
         fontFamily: 'IRANSans',
@@ -82,7 +83,7 @@ export default function SearchAjax() {
                         <div className={classes.SearchBox} style={searchResult ? { borderColor: theme.palette.primary.main, } : null}>
                             <InputBase className={classes.SearchInput} placeholder="سرچ ..." color="secondary" value={query} onChange={(e) => setQuery(e.target.value)} onFocus={() => setSearchResult(true)} />
                         </div>
-                        <IconButton className={classes.SearchButton} >
+                        <IconButton className={classes.SearchButton} size="large" >
                             <SearchIcon />
                         </IconButton>
                     </div>

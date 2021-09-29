@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent, makeStyles, Tooltip, Grid, Typography, Button, CardActions, Zoom } from '@material-ui/core';
+import { Card, CardContent, Tooltip, Grid, Typography, Button, CardActions, Zoom } from '@mui/material';
+import { makeStyles } from '@mui/styles'
 import Link from 'next/link';
 import PersonIcon from '@material-ui/icons/Person';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import ContentLoader from 'react-content-loader';
 import { Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const Loader = (props) => (
     <ContentLoader
@@ -56,11 +56,11 @@ const useStyles = makeStyles((theme) => ({
         cursor: 'pointer'
     },
     Tooltip: {
-        backgroundColor: theme.palette.primary.main,
-        fontSize: 14,
+        backgroundColor: theme.palette.primary.main + ' !important',
+        fontSize: '14px !important',
     },
     ArrowTooltip: {
-        color: theme.palette.primary.main,
+        color: theme.palette.primary.main + ' !important',
     },
     TeacherSection: {
         display: 'inline-flex',
@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
         width: 'fit-content',
         marginTop: 12,
         "& span": {
-            marginLeft: 3,
+            marginRight: 3,
         },
     },
     Price: {
@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         "& span": {
             fontSize: 20,
-            marginRight: 5,
+            marginLeft: 5,
         }
     },
     TimeSection: {
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         width: 'fit-content',
         "& span": {
-            marginLeft: 5,
+            marginRight: 5,
         }
     },
 }));
@@ -113,7 +113,7 @@ export default function CourseCard(props) {
                 <CardContent className={classes.paddingInto}>
 
                     <Link href={props.link}>
-                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive>
+                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive={true}>
                             <a className={classes.title}>{props.title}</a>
                         </Tooltip>
                     </Link>
