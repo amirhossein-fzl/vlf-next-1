@@ -206,96 +206,98 @@ export default function Header(props) {
 
     const displayDesktop = () => {
         return (
-            <ElevationScroll {...props} threshold={30}>
-                <AppBar color="default" elevation={0} position="sticky" className={abDp}>
-                    <Container>
-                        <Grid container direction="row" justifyContent="space-between" alignItems="center">
-                            <Image src="/vercel.svg" width={100} height={50} />
-                            <nav>
-                                {nav.map((item, key) => {
-                                    return <Link href={item.link} key={key}>{item.title}</Link>
-                                })}
-                                <a>
-                                    <Link href="#" style={{ marginRight: 10 }}>
-                                        <Button color="primary" size="small" variant="outlined">مدرس شوید !</Button>
-                                    </Link>
-                                </a>
-                            </nav>
-                            <div className="userbox">
-                                <IconButton aria-describedby={id} onClick={handleClick} size="small" color="primary">
-                                    <SearchRoundedIcon />
-                                </IconButton>
+            <>
+                <ElevationScroll {...props} threshold={30}>
+                    <AppBar color="default" elevation={0} position="sticky" className={abDp}>
+                        <Container>
+                            <Grid container direction="row" justifyContent="space-between" alignItems="center">
+                                <Image src="/vercel.svg" width={100} height={50} />
+                                <nav>
+                                    {nav.map((item, key) => {
+                                        return <Link href={item.link} key={key}>{item.title}</Link>
+                                    })}
+                                    <a>
+                                        <Link href="#" style={{ marginRight: 10 }}>
+                                            <Button color="primary" size="small" variant="outlined">مدرس شوید !</Button>
+                                        </Link>
+                                    </a>
+                                </nav>
+                                <div className="userbox">
+                                    <IconButton aria-describedby={id} onClick={handleClick} size="small" color="primary">
+                                        <SearchRoundedIcon />
+                                    </IconButton>
 
-                                <Popover id={id} open={open} anchorEl={anchorEl}
-                                    onClose={handleClose}
-                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
-                                    transformOrigin={{ vertical: 'top', horizontal: 'center', }}
-                                    elevation={3}
+                                    <Popover id={id} open={open} anchorEl={anchorEl}
+                                        onClose={handleClose}
+                                        anchorOrigin={{ vertical: 'bottom', horizontal: 'center', }}
+                                        transformOrigin={{ vertical: 'top', horizontal: 'center', }}
+                                        elevation={3}
                                     >
-                                    <div className={classes.search}>
+                                        <div className={classes.search}>
 
-                                        <InputBase
-                                            placeholder="سرچ ..."
-                                            classes={{
-                                                root: classes.inputRoot,
-                                                input: classes.inputInput,
-                                            }}
-                                            autoFocus={true}
-                                            inputProps={{ 'aria-label': 'search' }}
-                                            interactive={true}
-                                        />
+                                            <InputBase
+                                                placeholder="سرچ ..."
+                                                classes={{
+                                                    root: classes.inputRoot,
+                                                    input: classes.inputInput,
+                                                }}
+                                                autoFocus={true}
+                                                inputProps={{ 'aria-label': 'search' }}
+                                                interactive={true}
+                                            />
 
-                                        <div className={classes.searchIcon}>
-                                            <IconButton size="small" color="primary">
-                                                <SearchRoundedIcon />
-                                            </IconButton>
+                                            <div className={classes.searchIcon}>
+                                                <IconButton size="small" color="primary">
+                                                    <SearchRoundedIcon />
+                                                </IconButton>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <LinearProgress className={classes.lineLoad} color="secondary" />
+                                        <LinearProgress className={classes.lineLoad} color="secondary" />
 
-                                    <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} variant="fullWidth" className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
-                                        <Tab label="وبلاگ" />
-                                        <Tab label="دوره ها" />
-                                        <Tab label="همه" />
-                                    </Tabs>
+                                        <Tabs value={tab} onChange={handleChange} indicatorColor="primary" textColor="primary" centered={true} variant="fullWidth" className={classes.tab} TabIndicatorProps={{ style: { width: "160px", } }} >
+                                            <Tab label="وبلاگ" />
+                                            <Tab label="دوره ها" />
+                                            <Tab label="همه" />
+                                        </Tabs>
 
-                                    <TabPanel tab={2}>
-                                        <>
-                                            <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
-                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" loading={true} />
-                                            <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
-                                        </>
-                                    </TabPanel>
+                                        <TabPanel tab={2}>
+                                            <>
+                                                <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
+                                                <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" loading={true} />
+                                                <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
+                                            </>
+                                        </TabPanel>
 
-                                    <TabPanel tab={1}>
-                                        <>
-                                            <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
-                                        </>
-                                    </TabPanel>
+                                        <TabPanel tab={1}>
+                                            <>
+                                                <SearchResult image="/img/products/graphic.png" link="#" title="آموزش گرافیک تبلیغاتی پیشرفته" in="دوره ها" />
+                                            </>
+                                        </TabPanel>
 
-                                    <TabPanel tab={0}>
-                                        <>
-                                            <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" />
-                                            <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
-                                        </>
-                                    </TabPanel>
-                                </Popover>
+                                        <TabPanel tab={0}>
+                                            <>
+                                                <SearchResult image="/img/posts/Asp_net_core5.png" link="#" title="ویژگی های جدید Asp.Net Core 5" in="وبلاگ" />
+                                                <SearchResult image="/img/posts/nmvldt-logo.png" link="#" title="نکات مهم و کلیدی در طراحی لوگو" in="وبلاگ" />
+                                            </>
+                                        </TabPanel>
+                                    </Popover>
 
-                                <Button variant="contained" color="primary" size="small" disableElevation>
-                                    ورود
-                                </Button>
-
-                                <Link href='/signup'>
-                                    <Button variant="outlined" color="secondary" size="small" disableElevation>
-                                        ثبت نام
+                                    <Button variant="contained" color="primary" size="small" disableElevation>
+                                        ورود
                                     </Button>
-                                </Link>
-                            </div>
-                        </Grid>
-                    </Container>
-                </AppBar>
-            </ElevationScroll>
+
+                                    <Link href='/signup'>
+                                        <Button variant="outlined" color="secondary" size="small" disableElevation>
+                                            ثبت نام
+                                        </Button>
+                                    </Link>
+                                </div>
+                            </Grid>
+                        </Container>
+                    </AppBar>
+                </ElevationScroll>
+            </>
         );
     };
 

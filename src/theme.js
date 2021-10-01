@@ -22,13 +22,27 @@ const theme = createTheme({
             dark: "#ff1d1d",
             light: "#ff1d1d",
         },
-        
+
     },
     typography: {
         fontFamily: ['IRANSans'],
     },
     shape: {
         borderRadius: 8,
+    },
+    components: {
+        MuiTextField: {
+            variants: [
+                {
+                    props: { size: 'small' },
+                    style: {
+                        input: {
+                            padding: '10px 14px',
+                        },
+                    }
+                }
+            ]
+        }
     },
 });
 

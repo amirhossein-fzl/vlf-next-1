@@ -33,7 +33,7 @@ const useStyles = makeStyles({
         // fontSize: 12,
         marginTop: 14,
         marginBottom: 14,
-        textAlign: 'left',
+        textAlign: 'right',
     },
     ct: {
         '&:first-child': {

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { CircularProgress, Grid, } from '@mui/material';
-// import { ThemeProvider, createTheme } from '@material-ui/core/styles';
+// import NProgress from 'nprogress';
+import NProgress from '../src/nprogress';
 import { ThemeProvider } from '@mui/material/styles';
 
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
+
+import Router from 'next/router';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -24,6 +27,13 @@ const cacheRtl = createCache({
 
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 import '../styles/globals.scss';
+// import 'nprogress/nprogress.css';
+import '../styles/nprogress.css'
+
+NProgress.configure({ parent: 'header', rtl: true, });
+Router.events.on('routeChangeStart', () => { NProgress.start() });
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
 
 const Loader = () => {
     return (
@@ -35,7 +45,7 @@ const Loader = () => {
 
 function MyApp(props) {
     const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-    
+
     useEffect(() => {
         // Remove the server-side injected CSS.
         const jssStyles = document.querySelector('#jss-server-side');
