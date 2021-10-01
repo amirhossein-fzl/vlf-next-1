@@ -11,4 +11,5 @@ module.exports = {
         path: '/',
     },
     reactStrictMode: false,
+    compress: true,
 };
