@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, Tooltip, Grid, Typography, Button, CardActions, Zoom } from '@mui/material';
 import { makeStyles } from '@mui/styles'
 import Link from 'next/link';
-import PersonIcon from '@material-ui/icons/Person';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import PersonIcon from '@mui/icons-material/Person';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ContentLoader from 'react-content-loader';
 import { Col } from 'react-bootstrap';
 

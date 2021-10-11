@@ -3,9 +3,9 @@ import { Card, Tooltip, CardActions, CardContent, Button, Typography, Zoom, Grid
 import { makeStyles } from '@mui/styles';
 import { Col, Row } from 'react-bootstrap';
 import Link from 'next/link';
-import PersonIcon from '@material-ui/icons/Person';
-import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined';
-import BookmarkBorderOutlinedIcon from '@material-ui/icons/BookmarkBorderOutlined';
+import PersonIcon from '@mui/icons-material/Person';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 
 const useStyles = makeStyles((theme) => ({
     paddingInto: {

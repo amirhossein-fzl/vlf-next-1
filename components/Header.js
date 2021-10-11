@@ -1,78 +1,75 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import { Button, Grid, Container, IconButton, AppBar, makeStyles, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, Grow, } from '@material-ui/core';
 import { Button, Grid, Container, IconButton, AppBar, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, } from '@mui/material';
 import { makeStyles, } from '@mui/styles';
 import { useMediaQuery } from 'react-responsive';
-import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
-import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
-import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 import Link from 'next/link';
 import Image from 'next/image';
 import Header2 from './Header2';
 import SearchResult from './SearchResult';
 
-const useStyles = makeStyles((theme) => {
-    return {
-        // App Bar Desktop Padding
-        abDp: {
-            padding: '5px 15px',
-        },
+const useStyles = makeStyles((theme) => ({
+    // App Bar Desktop Padding
+    abDp: {
+        padding: '5px 15px',
+    },
 
-        search: {
-            borderRadius: theme.shape.borderRadius,
-            backgroundColor: alpha(theme.palette.primary.light, 0.15),
-            margin: '5px auto',
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            width: 'fit-content',
-            [theme.breakpoints.up('sm')]: {
-                // marginRight: 5,
+    search: {
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: alpha(theme.palette.primary.light, 0.15),
+        margin: '5px auto',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        width: 'fit-content',
+        [theme.breakpoints.up('sm')]: {
+            // marginRight: 5,
+        },
+    },
+    searchIcon: {
+        padding: theme.spacing(0, 1),
+        height: '100%',
+        // position: 'absolute',
+        // pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1000,
+    },
+    inputRoot: {
+        // color: 'inherit',
+        color: theme.palette.primary.main,
+        // backgroundColor: 'blue',
+    },
+    inputInput: {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: 10,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+            width: '12ch',
+            '&:focus': {
+                width: '20ch',
             },
         },
-        searchIcon: {
-            padding: theme.spacing(0, 1),
-            height: '100%',
-            // position: 'absolute',
-            // pointerEvents: 'none',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000,
-        },
-        inputRoot: {
-            // color: 'inherit',
-            color: theme.palette.primary.main,
-            // backgroundColor: 'blue',
-        },
-        inputInput: {
-            padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
-            paddingLeft: 10,
-            transition: theme.transitions.create('width'),
-            width: '100%',
-            [theme.breakpoints.up('sm')]: {
-                width: '12ch',
-                '&:focus': {
-                    width: '20ch',
-                },
-            },
-        },
-        lineLoad: {
-            margin: '10px 5px',
-            borderRadius: 5,
-        },
-        tab: {
-            margin: '10px 5px',
-        },
-        TabContent: {
-            margin: 10,
-            display: 'flex',
-            flexFlow: 'column',
-        },
-    };
-});
+    },
+    lineLoad: {
+        margin: '10px 5px',
+        borderRadius: 5,
+    },
+    tab: {
+        margin: '10px 5px',
+    },
+    TabContent: {
+        margin: 10,
+        display: 'flex',
+        flexFlow: 'column',
+    },
+}));
 
 function ElevationScroll(props) {
     const { children, window } = props;

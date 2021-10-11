@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/Header';
-import styles from '../styles/Home.module.scss';
 import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Grid, Container, useScrollTrigger, Fab, Zoom, Tooltip, } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Image from 'next/image';
 import SearchAjax from './SearchAjax';
 
@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.main + ' !important',
         fontSize: '12px !important',
     },
+    header2: {
+        marginTop: '100px !important',
+    }
 }));
 
 function ScrollTop(props) {
@@ -77,9 +80,10 @@ ElevationScroll.propTypes = {
 };
 
 export default function Header2(props) {
+    const classes = useStyles();
     return (
         <Container>
-            <Grid container lg={12} item className="header-2" >
+            <Grid container lg={12} item className={classes.header2} >
                 <Grid lg={6} md={6} sm={12} item container direction="column" className="text-center" >
                     <h1>با ویرولرن</h1>
                     <h2 className="mt-3">لحظه ای از تکنولوژی عقب نمانید !</h2>

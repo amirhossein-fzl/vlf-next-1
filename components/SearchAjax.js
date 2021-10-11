@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Paper, InputBase, alpha, IconButton, ButtonBase, Grid, Typography, Grow, } from '@mui/material';
 import { makeStyles, useTheme } from '@mui/styles';
 import { Col, Container } from 'react-bootstrap';
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from '@mui/icons-material/Search';
 const useStyles = makeStyles((theme) => ({
     typography: {
         padding: theme.spacing(2),

@@ -119,64 +119,11 @@ nav {
 }
 
 .text-center {
-    text-align: center;
-}
-
-.mt-3 {
-    margin-top: 1rem;
-}
-
-.mt-5 {
-    margin-top: 3rem;
-}
-
-.mb-5 {
-    margin-bottom: 3rem;
-}
-
-.header-2 {
-    margin-top: 100px !important;
+    text-align: center !important;
 }
 
 .MuiAppBar-colorDefault {
     background-color: #fff !important;
-}
-
-.section-title-container {
-    margin-bottom: 1.5em;
-}
-
-.container-d {
-    padding-left: 40px;
-    padding-right: 40px;
-    margin: 90px 0 60px;
-}
-
-.section-title {
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    font-family: IRANSans;
-    font-weight: 700;
-    color: #263238;
-    b {
-        display: block;
-        -ms-flex: 1;
-        flex: 1;
-        height: 4px;
-        opacity: .4;
-        background-color: #263238;
-    }
-}
-
-.section-title-center {
-    span {
-        text-align: center;
-        margin: 0 15px;
-    }
 }
 
 ul {

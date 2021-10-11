@@ -1,20 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import { CircularProgress, Grid, } from '@mui/material';
-// import NProgress from 'nprogress';
-import NProgress from '../src/nprogress';
+import Head from 'next/head';
 import { ThemeProvider } from '@mui/material/styles';
-
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider } from '@emotion/react';
 import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
 
+//
+
+import { CircularProgress, Grid, } from '@mui/material';
+import NProgress from '../src/nprogress';
 import Router from 'next/router';
+
+// styles
+
+import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
+import '../styles/globals.scss';
+import '../styles/nprogress.css'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
+// RTL
 import rtlPlugin from 'stylis-plugin-rtl';
 import createCache from '@emotion/cache';
 
@@ -24,12 +32,7 @@ const cacheRtl = createCache({
     stylisPlugins: [rtlPlugin],
 });
 
-
-import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
-import '../styles/globals.scss';
-// import 'nprogress/nprogress.css';
-import '../styles/nprogress.css'
-
+// Progress Loader
 NProgress.configure({ parent: 'header', rtl: true, });
 Router.events.on('routeChangeStart', () => { NProgress.start() });
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -46,12 +49,7 @@ const Loader = () => {
 function MyApp(props) {
     const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
-    useEffect(() => {
-        // Remove the server-side injected CSS.
-        const jssStyles = document.querySelector('#jss-server-side');
-        if (jssStyles) {
-            jssStyles.parentElement.removeChild(jssStyles);
-        }
+    React.useEffect(() => {
         const detectIEEdge = () => {
             let ua = window.navigator.userAgent;
 

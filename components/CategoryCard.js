@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonBase, Typography, } from '@mui/material';
-import { makeStyles, useTheme, } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import Image from 'next/image';
 import Link from 'next/link';
 

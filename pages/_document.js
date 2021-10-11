@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-// import { ServerStyleSheets } from '@material-ui/core/styles';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../src/createEmotionCache';
 
@@ -18,6 +17,8 @@ export default class MyDocument extends Document {
     }
 }
 
+// `getInitialProps` belongs to `_document` (instead of `_app`),
+// it's compatible with static-site generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
     // Resolution order
     //

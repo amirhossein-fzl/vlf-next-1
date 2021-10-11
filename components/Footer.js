@@ -2,14 +2,14 @@ import React from 'react';
 import { Grid, Fab, Typography, Container, IconButton, } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Row, Col, } from 'react-bootstrap';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import CountUp from 'react-countup';
 import ArticleSvg from '../public/svg/ArticlesSvg';
 import CapStudentSvg from '../public/svg/CapStudentSvg';
 import VideoCourcesSvg from '../public/svg/VideoCourcesSvg';
-import TelegramIcon from '@material-ui/icons/Telegram';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 const useStyles = makeStyles((theme) => ({
     footer: {
