@@ -35,7 +35,11 @@ const useStyles = makeStyles((theme) => ({
     },
     header2: {
         marginTop: '100px !important',
-    }
+    },
+    g1: {
+        padding: '0 20px',
+        textAlign: 'center',
+    },
 }));
 
 function ScrollTop(props) {
@@ -84,7 +88,7 @@ export default function Header2(props) {
     return (
         <Container>
             <Grid container lg={12} item className={classes.header2} >
-                <Grid lg={6} md={6} sm={12} item container direction="column" className="text-center" >
+                <Grid lg={6} md={6} sm={12} item container direction="column" className={classes.g1} >
                     <h1>با ویرولرن</h1>
                     <h2 className="mt-3">لحظه ای از تکنولوژی عقب نمانید !</h2>
                     <p className="mt-3">آموزش آنلاین توسط بهترین اساتید برای ساخت آینده کاری شما و تضمین یادگیری شما در ویرولرن</p>
