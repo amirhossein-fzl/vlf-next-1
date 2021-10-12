@@ -14,7 +14,8 @@ const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        fontFamily: 'IRANSans',
+        fontFamily: 'Aviny',
+        fontSize: '2rem',
         fontWeight: 700,
         color: '#263238',
         '& b': {

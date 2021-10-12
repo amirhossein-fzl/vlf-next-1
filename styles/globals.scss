@@ -41,6 +41,18 @@
     src: url("../fonts/eot/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"), url("../fonts/woff2/IRANSansWeb(FaNum).woff2") format("woff2"), url("../fonts/woff/IRANSansWeb(FaNum).woff") format("woff"), url("../fonts/ttf/IRANSansWeb(FaNum).ttf") format("truetype");
 }
 
+@font-face {
+    font-family: 'Aviny';
+    src: url('../fonts/eot/Aviny.eot');
+    src: url('../fonts/eot/Aviny.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/woff2/Aviny.woff2') format('woff2'),
+        url('../fonts/woff/Aviny.woff') format('woff'),
+        url('../fonts/ttf/Aviny.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 $primary_color: #4361ee;
 $secondary_color: #bc00dd;
 

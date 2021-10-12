@@ -33,7 +33,7 @@ const cacheRtl = createCache({
 });
 
 // Progress Loader
-NProgress.configure({ parent: 'header', rtl: true, });
+NProgress.configure({ parent: 'body', rtl: true, });
 Router.events.on('routeChangeStart', () => { NProgress.start() });
 Router.events.on('routeChangeComplete', () => NProgress.done());
 Router.events.on('routeChangeError', () => NProgress.done());
@@ -48,8 +48,12 @@ const Loader = () => {
 
 function MyApp(props) {
     const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
     React.useEffect(() => {
+        const jssStyles = document.querySelector('#jss-server-side');
+        if (jssStyles) {
+            jssStyles.parentElement.removeChild(jssStyles);
+        }
+
         const detectIEEdge = () => {
             let ua = window.navigator.userAgent;
 

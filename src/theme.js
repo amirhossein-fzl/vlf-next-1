@@ -22,6 +22,21 @@ const theme = createTheme({
             dark: "#ff1d1d",
             light: "#ff1d1d",
         },
+        telegram: {
+            main: "#54a9eb",
+            dark: "#54a9eb",
+            light: "#54a9eb",
+        },
+        twitter: {
+            main: "#5aa4eb",
+            dark: "#5aa4eb",
+            light: "#5aa4eb",
+        },
+        github: {
+            main: "#333333",
+            dark: "#333333",
+            light: "#333333",
+        },
 
     },
     typography: {
@@ -43,6 +58,17 @@ const theme = createTheme({
                 }
             ]
         }
+    },
+    socialIcons: {
+        telegram: {
+            color: 'blue'
+        },
+        twitter: {
+            color: 'blue'
+        },
+        github: {
+            color: '#000'
+        },
     },
 });
 

@@ -40,6 +40,14 @@ const useStyles = makeStyles((theme) => ({
         padding: '0 20px',
         textAlign: 'center',
     },
+    headTitle: {
+        fontSize: '3.5rem',
+        fontFamily: 'Aviny',
+    },
+    headDesc: {
+        fontSize: '1.8rem',
+        fontFamily: 'Aviny',
+    },
 }));
 
 function ScrollTop(props) {
@@ -89,8 +97,8 @@ export default function Header2(props) {
         <Container>
             <Grid container lg={12} item className={classes.header2} >
                 <Grid lg={6} md={6} sm={12} item container direction="column" className={classes.g1} >
-                    <h1>با ویرولرن</h1>
-                    <h2 className="mt-3">لحظه ای از تکنولوژی عقب نمانید !</h2>
+                    <h1 className={classes.headTitle}>با ویرولرن</h1>
+                    <h2 className={classes.headDesc + " mt-3"}>لحظه ای از تکنولوژی عقب نمانید !</h2>
                     <p className="mt-3">آموزش آنلاین توسط بهترین اساتید برای ساخت آینده کاری شما و تضمین یادگیری شما در ویرولرن</p>
                     {/* <Grid justifyContent="space-evenly" container className="mt-5 mb-5">
                         <Button disableElevation variant="outlined" color="primary">از دوره های ما دیدن کنید</Button>
