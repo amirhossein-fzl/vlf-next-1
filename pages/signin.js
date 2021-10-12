@@ -81,10 +81,10 @@ export default function signup() {
     return (
         <>
             <Head>
-                <title>ویرولرن - ثبت نام عضو جدید</title>
-                <meta name="keywords" content="ثبت نام,ویرولرن,ثبتنام,ثبت نام در ویرولرن,ثبتنام در ویرولرن,ویرولرن" />
-                <meta name="description" content="میخواهید در مجموعه ویرولرن ثبت نام کنید؟ فرم این صفحه را پر کنید" />
-                <meta name="subject" content="ثبت نام کاربر جدید" />
+                <title>ویرولرن - ورود</title>
+                <meta name="keywords" content="ویرولرن,ورود,ورود به ویرولرن" />
+                <meta name="description" content="برای دسترسی به تمامی بخش های وبسایت، وارد شوید !" />
+                <meta name="subject" content="ورود" />
                 <meta name="language" content="FA" />
                 <meta name="robots" content="index, follow" />
             </Head>
@@ -93,20 +93,18 @@ export default function signup() {
                 <Grid container justifyContent="center">
                     <Col lg={5}>
                         <Card className={classes.FormCard + ' mt-5'} elevation={3}>
-                            <Typography variant="h3" className={classes.AvinyFont} textAlign="center">ثبت نام</Typography>
+                            <Typography variant="h3" className={classes.AvinyFont} textAlign="center">ورود</Typography>
                             <Grid className="mt-5">
-                                <TextField variant="outlined" helperText="نام و نام خانوادگی خود را بنویسید" fullWidth size="small" label="نام و نام خانوادگی" />
                                 <TextField className="mt-4" InputProps={{ dir: 'ltr' }} helperText="ایمیل خود را بنویسید" variant="outlined" fullWidth size="small" label="ایمیل" />
-                                <TextField className="mt-4" InputProps={{ dir: 'ltr' }} helperText="یک رمز عبور دلخواه بنویسید ( رمز عبور را باید به خاطر داشته باشید )" variant="outlined" fullWidth size="small" type="password" label="رمز عبور" />
-                                <TextField className="mt-4" InputProps={{ dir: 'ltr' }} helperText="تکرار رمز عبوری که نوشتید را بنویسید" variant="outlined" fullWidth size="small" type="password" label="تکرار رمز عبور" />
-                                <FormControlLabel className="mt-5" control={<Checkbox />} label="تمامی شرایط را خوانده ام و می پذیرم" />
+                                <TextField className="mt-4" InputProps={{ dir: 'ltr' }} helperText="رمز عبور خود را بنویسید" variant="outlined" fullWidth size="small" type="password" label="رمز عبور" />
+                                <FormControlLabel className="mt-5" control={<Checkbox />} label="مرا به خاطر بسپار" />
                             </Grid>
                             <Grid container direction="column">
-                                <Button variant="contained" color="primary" className="mt-4">ثبت نام</Button>
+                                <Button variant="contained" color="primary" className="mt-4">ورود</Button>
 
                                 <p className={classes.sectionTitle + ' mb-4 mt-5 ' + classes.sectionTitleCenter}>
                                     <b></b>
-                                    <span className={classes.sectionTitleCenter}>یا ثبت نام با شبکه های اجتماعی</span>
+                                    <span className={classes.sectionTitleCenter}>یا ورود با شبکه های اجتماعی</span>
                                     <b></b>
                                 </p>
 
@@ -142,8 +140,8 @@ export default function signup() {
                                         <span className={classes.sectionTitleCenter}>یا</span>
                                         <b></b>
                                     </p>
-                                    <NextLink href="/signin">
-                                        <Button variant="contained" color="secondary" className="mb-5">ورود</Button>
+                                    <NextLink href="/signup">
+                                        <Button variant="contained" color="secondary" className="mb-5">ثبت نام</Button>
                                     </NextLink>
                                     <Grid container direction="row" justifyContent="center">
                                         <NextLink href="/">

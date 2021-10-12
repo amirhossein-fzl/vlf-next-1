@@ -280,9 +280,11 @@ export default function Header(props) {
                                         </TabPanel>
                                     </Popover>
 
-                                    <Button variant="contained" color="primary" size="small" disableElevation>
-                                        ورود
-                                    </Button>
+                                    <Link href="/signin">
+                                        <Button variant="contained" color="primary" size="small" disableElevation>
+                                            ورود
+                                        </Button>
+                                    </Link>
 
                                     <Link href='/signup'>
                                         <Button variant="outlined" color="secondary" size="small" disableElevation>
