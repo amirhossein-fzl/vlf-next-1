@@ -11,6 +11,8 @@ import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
 import EmailSvg from '../public/svg/EmailSvg';
 import Footer from '../components/Footer';
+import dynamic from 'next/dynamic';
+const Slider = dynamic(() => import('../components/Slider.js').then((module) => module.default), { ssr: false });
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const useStyles = makeStyles({
@@ -129,6 +131,11 @@ export default function Home() {
                             }
                         </Row>
                     </Container>
+                </>
+
+                <>
+                    <Title title="پیشنهادات ویژه" />
+                    <Slider />
                 </>
 
                 <>
