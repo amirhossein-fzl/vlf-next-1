@@ -41,6 +41,10 @@ const theme = createTheme({
     },
     typography: {
         fontFamily: ['IRANSans'],
+        h1: {
+            fontSize: '2.4rem',
+            fontWeight: 500,
+        }
     },
     shape: {
         borderRadius: 8,

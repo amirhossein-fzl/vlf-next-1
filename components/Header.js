@@ -96,7 +96,7 @@ export default function Header(props) {
     const nav = [
         {
             title: "صفحه اصلی",
-            link: "#",
+            link: "/",
         },
         {
             title: "وبلاگ",
@@ -104,7 +104,7 @@ export default function Header(props) {
         },
         {
             title: "درباره ما",
-            link: "#",
+            link: "/about",
         },
         {
             title: "تماس باما",
