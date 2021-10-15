@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
             width: 25,
             height: 13,
             borderRadius: 15,
+            cursor: 'pointer',
             border: '1px solid ' + theme.palette.primary.main,
             marginLeft: 6,
             transition: '.4s',

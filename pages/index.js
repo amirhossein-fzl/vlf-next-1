@@ -5,7 +5,8 @@ import Title from '../components/Title';
 import CourseCard from '../components/CourseCard';
 import { Container, Row, Col, } from 'react-bootstrap';
 import { Button, Grid, TextField, } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import Typography from '@mui/material/Typography';
+import makeStyles from '@mui/styles/makeStyles';
 import Image from 'next/image';
 import CategoryCard from '../components/CategoryCard';
 import PostCard from '../components/PostCard';
@@ -13,6 +14,8 @@ import EmailSvg from '../public/svg/EmailSvg';
 import Footer from '../components/Footer';
 import dynamic from 'next/dynamic';
 const Slider = dynamic(() => import('../components/Slider.js').then((module) => module.default), { ssr: false });
+const BestTeacher = dynamic(() => import('../components/BestTeacher').then((module) => module.default), { ssr: false });
+import Avatar from '@mui/material/Avatar';
 import 'bootstrap/dist/css/bootstrap-grid.rtl.min.css';
 
 const useStyles = makeStyles({
@@ -32,7 +35,10 @@ const useStyles = makeStyles({
     },
     nlp: {
         textAlign: 'center',
-    }
+    },
+    pr40: {
+        paddingRight: 40,
+    },
 });
 
 export default function Home() {
@@ -222,6 +228,49 @@ export default function Home() {
                                 price={250000}
                                 time="12:00"
                             />
+
+                        </Row>
+                        <Grid container justifyContent="center" className="mt-5">
+                            <Button variant="outlined" color="secondary">مشاهده بیشتر</Button>
+                        </Grid>
+                    </Container>
+                </>
+
+                <>
+                    <Title title="مدرس برتر هفته" />
+                    <Container className="mt-5">
+                        <Row>
+
+                            <Col lg={4} sm={12} xs={12}>
+                                <Grid container direction="row" spacing={3} alignItems="center" >
+                                    <Grid item>
+                                        <Avatar src="/img/Amir-developer-avatar.jpg" sx={{ width: 100, height: 100 }} />
+                                    </Grid>
+                                    <Grid item>
+                                        <Grid container direction="column" spacing={1}>
+
+                                            <Grid item>
+                                                <Typography variant="h4">امیرحسین فضلی</Typography>
+                                            </Grid>
+
+                                            <Grid item>
+                                                <Typography variant="subtitle1">بیوگرافی من</Typography>
+                                            </Grid>
+
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <Grid container direction="column" className="mt-5">
+                                    <Typography variant="body" textAlign="justify">
+                                        از تیر ماه سال 98 یادگیری برنامه نویسی را شروع کردم. از سال 98 تا الان، به تسلط بالایی در برنامه نویسی رسیدم و اکنون در خدمت شما با مجموعه ویرولرن هستم تا دانشم را به شما انتقال دهم. از فعالیت در موحموعه ویرولرن حس خوبی دارم.
+                                    </Typography>
+                                </Grid>
+                                <Button className="mt-5" color="primary" variant="contained">مشاهده صفحه مدرس</Button>
+                            </Col>
+
+                            <Col lg={8} sm={12} xs={12} className={classes.pr40 + ' mt-5 mt-lg-0'}>
+                                <BestTeacher />
+                            </Col>
 
                         </Row>
                     </Container>
