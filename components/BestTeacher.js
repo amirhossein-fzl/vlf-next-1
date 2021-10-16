@@ -12,79 +12,18 @@ import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import Zoom from '@mui/material/Zoom';
 import makeStyles from '@mui/styles/makeStyles';
+import useStyles from '../src/styles/CourseCardStyles';
 import Link from 'next/link';
 import PersonIcon from '@mui/icons-material/Person';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const useStyles = makeStyles((theme) => ({
+const useStylesComponent = makeStyles((theme) => ({
     Card: {
         backgroundColor: '#fff',
         color: 'rgba(0, 0, 0, 0.87)',
         borderRadius: theme.shape.borderRadius,
         boxShadow: '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)',
         overflow: 'hidden',
-    },
-    discountLogo: {
-        width: 60,
-        height: 'auto',
-        position: 'absolute',
-        top: '-20px',
-        left: '-15px',
-        userSelect: 'none',
-    },
-    prd: {
-        position: 'relative',
-    },
-    paddingInto: {
-        padding: '7px 10px 0px',
-    },
-    image: {
-        width: '100%',
-        height: 'auto',
-    },
-    title: {
-        fontSize: 15,
-        fontWeight: 500,
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        display: 'block',
-        whiteSpace: 'nowrap',
-        cursor: 'pointer'
-    },
-    Tooltip: {
-        backgroundColor: theme.palette.primary.main + ' !important',
-        fontSize: '14px !important',
-    },
-    ArrowTooltip: {
-        color: theme.palette.primary.main + ' !important',
-    },
-    TeacherSection: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        width: 'fit-content',
-        marginTop: 12,
-        "& span": {
-            marginRight: 3,
-        },
-    },
-    Price: {
-        color: '#0096c7',
-        fontSize: 15,
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignItems: 'center',
-        "& span": {
-            fontSize: 20,
-            marginLeft: 5,
-        }
-    },
-    TimeSection: {
-        display: 'inline-flex',
-        alignItems: 'center',
-        width: 'fit-content',
-        "& span": {
-            marginRight: 5,
-        }
     },
     SliderPagination: {
         marginTop: 35,
@@ -156,11 +95,11 @@ function CourseCard(props) {
 }
 
 const Bestteacher = () => {
-    const classes = useStyles();
+    const classesComponent = useStylesComponent();
     return (
         <div>
-            <Swiper dir="rtl" style={{ padding: '15px 0', }} className="swiper-container" modules={[EffectCoverflow, Autoplay, Pagination]} autoplay={{ delay: 2500, disableOnInteraction: false, }} pagination={{ clickable: true, el: '.' + classes.SliderPagination }} coverflowEffect={{ depth: 500, modifier: 1, rotate: 0, slideShadows: true, stretch: 0, }} centeredSlides={true} effect="coverflow" slidesPerView="auto" watchOverflow={true} grabCursor={true}>
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+            <Swiper dir="rtl" style={{ padding: '15px 0', }} className="swiper-container" modules={[EffectCoverflow, Autoplay, Pagination]} autoplay={{ delay: 2500, disableOnInteraction: false, }} pagination={{ clickable: true, el: '.' + classesComponent.SliderPagination }} coverflowEffect={{ depth: 500, modifier: 1, rotate: 0, slideShadows: true, stretch: 0, }} centeredSlides={true} effect="coverflow" slidesPerView="auto" watchOverflow={true} grabCursor={true}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="حل مسائل و تمرین های الگوریتم و فلوچارت"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -172,7 +111,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="آموزش گرافیک تبلیغاتی پیشرفته"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -184,7 +123,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="طراحی های خلاقانه رابط کاربری وبسایت (Html, Css, Jquery)"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -196,7 +135,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="برنامه نویس شی گرا در جاوااسکریپت"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -208,7 +147,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="آموزش متریال بوت استرپ (mdbootstrap)"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -220,7 +159,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="آموزش امنیت در PHP"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -232,7 +171,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="تحلیل و پیش بینی بورس در پایتون"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -244,7 +183,7 @@ const Bestteacher = () => {
                     />
                 </SwiperSlide>
 
-                <SwiperSlide className={classes.Card} style={{ width: 275 }}>
+                <SwiperSlide className={classesComponent.Card} style={{ width: 275 }}>
                     <CourseCard
                         title="آموزش Selenium در سی شارپ از صفر تا صد"
                         grid={{ lg: 12, md: 12, sm: 12 }}
@@ -255,7 +194,7 @@ const Bestteacher = () => {
                         time="12:00"
                     />
                 </SwiperSlide>
-                <div className={classes.SliderPagination}></div>
+                <div className={classesComponent.SliderPagination}></div>
                 <div className="slider-button-prev"></div>
                 <div className="slider-button-next"></div>
             </Swiper>
