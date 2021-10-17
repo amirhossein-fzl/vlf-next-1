@@ -12,8 +12,11 @@ import Typography from '@mui/material/Typography';
 import NextLink from 'next/link';
 import makeStyles from '@mui/styles/makeStyles';
 import Grid from '@mui/material/Grid';
+import Avatar from '@mui/material/Avatar';
+import Title from '../components/Title';
+import Head from 'next/head';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     articleBody: {
         marginTop: 50,
         padding: 20,
@@ -35,13 +38,23 @@ const useStyles = makeStyles({
                 color: '#0096c7',
             }
         },
-    }
-});
+    },
+    mtB: {
+        marginTop: 0,
+        [theme.breakpoints.down('md')]: {
+            marginTop: 50,
+        },
+    },
+}));
 
 const About = () => {
     const classes = useStyles();
     return (
         <>
+            <Head>
+                <title>ویرولرن - درباره ما</title>
+            </Head>
+            
             <Header />
             <main>
                 <Continer lg>
@@ -84,6 +97,38 @@ const About = () => {
                             <img className="col-lg-5" src="/img/criticism.jpg" alt="criticism" />
                         </Row>
                     </Card>
+
+                    <>
+                        <Title title="اعضای تیم" />
+                        <Grid container>
+
+                            <Grid item lg={6} md={6} sm={12} xs={12}>
+                                <Grid container spacing={2} direction="column" alignItems="center">
+                                    <Grid item>
+                                        <Avatar src="/img/Amir-developer-avatar.jpg" sx={{ width: 100, height: 100 }} />
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="h4">امیرحسین فضلی</Typography>
+                                        <Typography className="mt-2 text-center" variant="body" component="p">هم بنیان گذار</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                            <Grid item lg={6} md={6} sm={12} xs={12} className={classes.mtB}>
+                                <Grid container spacing={2} direction="column" alignItems="center">
+                                    <Grid item>
+                                        <Avatar src="/img/Milad-mohammadi-avatar.jpg" sx={{ width: 100, height: 100 }} />
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="h4">میلاد محمدی</Typography>
+                                        <Typography className="mt-2 text-center" variant="body" component="p">هم بنیان گذار</Typography>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+
+                        </Grid>
+                    </>
+
                 </Continer>
             </main>
             <Footer />
