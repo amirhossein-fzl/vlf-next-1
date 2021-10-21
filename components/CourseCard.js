@@ -47,7 +47,7 @@ export default function CourseCard(props) {
                 <CardContent className={classes.paddingInto}>
 
                     <Link href={props.link}>
-                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive={true}>
+                        <Tooltip TransitionComponent={Zoom} title={props.title} placement="top" arrow classes={{ tooltip: classes.Tooltip, arrow: classes.ArrowTooltip }} interactive="true">
                             <a className={classes.title}>{props.title}</a>
                         </Tooltip>
                     </Link>

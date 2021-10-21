@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Grid, Container, IconButton, AppBar, Drawer, MenuItem, Popover, useScrollTrigger, alpha, InputBase, LinearProgress, Tabs, Tab, } from '@mui/material';
 import { makeStyles, } from '@mui/styles';
-import { useMediaQuery } from 'react-responsive';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
@@ -240,7 +240,7 @@ export default function Header(props) {
                                                 }}
                                                 autoFocus={true}
                                                 inputProps={{ 'aria-label': 'search' }}
-                                                interactive={true}
+                                                interactive="true"
                                             />
 
                                             <div className={classes.searchIcon}>
@@ -301,8 +301,10 @@ export default function Header(props) {
     };
 
     const showNav = () => {
-        let isMobile = useMediaQuery({ maxWidth: 790 });
-        let isDesktop = useMediaQuery({ minWidth: 790 });
+        let isMobile = useMediaQuery('(max-width: 790px)');
+        let isDesktop = useMediaQuery('(min-width: 790px)');
+        // let isMobile = useMediaQuery({ maxWidth: 790 });
+        // let isDesktop = useMediaQuery({ minWidth: 790 });
         if (isMobile) {
             return displayMobile();
         } else if (isDesktop) {

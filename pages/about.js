@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import Continer from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Image from 'next/image';
 import Breadcrumb from '../components/Breadcrumb';
 import Card from '@mui/material/Card';
 import Link from '@mui/material/Link';
@@ -54,7 +53,7 @@ const About = () => {
             <Head>
                 <title>ویرولرن - درباره ما</title>
             </Head>
-            
+
             <Header />
             <main>
                 <Continer lg>
