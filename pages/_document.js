@@ -2,7 +2,6 @@ import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../src/createEmotionCache';
-import ServerStyleSheets from '@mui/styles/ServerStyleSheets';
 
 export default class MyDocument extends Document {
     render() {
@@ -45,9 +44,6 @@ MyDocument.getInitialProps = async (ctx) => {
 
     const originalRenderPage = ctx.renderPage;
 
-    // ****
-    const sheets = new ServerStyleSheets();
-    // *****
     // You can consider sharing the same emotion cache between all the SSR requests to speed up performance.
     // However, be aware that it can have global side effects.
     const cache = createEmotionCache();
@@ -55,8 +51,7 @@ MyDocument.getInitialProps = async (ctx) => {
 
     ctx.renderPage = () =>
         originalRenderPage({
-            // enhanceApp: (App) => (props) => <App emotionCache={cache} {...props} />,
-            enhanceApp: (App) => (props) => sheets.collect(<App emotionCache={cache} {...props} />),
+            enhanceApp: (App) => (props) => <App emotionCache={cache} {...props} />,
         });
 
     const initialProps = await Document.getInitialProps(ctx);
